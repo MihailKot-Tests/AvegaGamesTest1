@@ -5,8 +5,7 @@ namespace AvegaGamesTest1
 {
     public sealed class Enemy
     {
-        public bool IsDie { get; private set; } = false;
-        public Vector3 LastPosition { get; set; }
+        #region Fields
 
         private GameObject _enemy;
 
@@ -18,10 +17,24 @@ namespace AvegaGamesTest1
 
         private int _damage = 5;
 
+        #endregion
+
+
+        #region Properties
+
+        public bool IsDie { get; private set; } = false;
+        public Vector3 LastPosition { get; set; }
+
+        #endregion
+
+
         public Enemy(GameObject enemy)
         {
             _enemy = enemy;
         }
+
+
+        #region Methods
 
         public void Action(GameObject target, PlayerController playerController)
         {
@@ -63,5 +76,7 @@ namespace AvegaGamesTest1
         {
             IsDie = true;
         }
+
+        #endregion
     }
 }

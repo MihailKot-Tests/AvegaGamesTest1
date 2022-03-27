@@ -5,12 +5,17 @@ namespace AvegaGamesTest1
 {
     public sealed class TextController
     {
+        #region Fields
+
         private Text _textAmmo;
         private Text _textHP;
 
         private Text _textRed;
         private Text _textYellow;
         private Text _textGreen;
+
+        #endregion
+
 
         public TextController(Text textAmmo, Text textHP, Text textRed, Text textYellow, Text textGreen)
         {
@@ -21,6 +26,9 @@ namespace AvegaGamesTest1
             _textYellow = textYellow;
             _textGreen = textGreen;
         }
+
+
+        #region Methods
 
         public void SetAmmoText(int ammo)
         {
@@ -34,9 +42,11 @@ namespace AvegaGamesTest1
 
         public void ChangeCountColor(int countRed, int countYellow, int countGreen)
         {
-            _textRed.text = $"RED: {countRed.ToString()}";
-            _textYellow.text = $"RED: {countYellow.ToString()}";
-            _textGreen.text = $"RED: {countGreen.ToString()}";
+            _textRed.text = $"RED: {countRed}";
+            _textYellow.text = $"RED: {countYellow}";
+            _textGreen.text = $"RED: {countGreen}";
         }
+
+        #endregion
     }
 }

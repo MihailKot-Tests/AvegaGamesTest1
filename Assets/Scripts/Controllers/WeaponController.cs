@@ -8,7 +8,7 @@ namespace AvegaGamesTest1
     {
         #region Fields
 
-        private TextController _textController;
+        private readonly TextController _textController;
 
         private Coroutine _routine = null;
         private FP_Input _playerInput = null;

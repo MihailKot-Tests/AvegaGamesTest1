@@ -5,9 +5,11 @@ namespace AvegaGamesTest1
 {
     public sealed class PlayerController
     {
+        #region Fields
+
         public Action DiePlayerAction;
 
-        private TextController _textController;
+        private readonly TextController _textController;
 
         private int _maxHealth = 100;
         private int _minHealth = 0;
@@ -16,6 +18,9 @@ namespace AvegaGamesTest1
         private int _countRed = 0;
         private int _countYellow = 0;
         private int _countGreen = 0;
+
+        #endregion
+
 
         public PlayerController(TextController textController)
         {
@@ -26,6 +31,9 @@ namespace AvegaGamesTest1
 
             _textController.SetHPText(_health);
         }
+
+
+        #region Methods
 
         public void ChangeHP(int count)
         {
@@ -54,5 +62,7 @@ namespace AvegaGamesTest1
             }
             _textController.ChangeCountColor(_countRed, _countYellow, _countGreen);
         }
+
+        #endregion
     }
 }
