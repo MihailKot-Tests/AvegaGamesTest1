@@ -6,6 +6,13 @@ namespace AvegaGamesTest1
 {
     public sealed class EnemyController : IExecute
     {
+        #region Fields
+
+        private readonly Camera _camera;
+        private readonly GameObject _player;
+        private readonly PlayerController _playerController;
+        private readonly BoxController _boxController;
+
         private List<Enemy> enemies = new List<Enemy>();
 
         private GameObject _enemyPrefab;
@@ -13,11 +20,8 @@ namespace AvegaGamesTest1
         private float _time = 0.0f;
         private float _delay = 3.0f;
 
-        private Camera _camera;
+        #endregion
 
-        private GameObject _player;
-        private PlayerController _playerController;
-        private BoxController _boxController;
 
         public EnemyController(GameObject enemy, Camera camera, GameObject player, PlayerController playerController, BoxController boxController)
         {
@@ -27,6 +31,9 @@ namespace AvegaGamesTest1
             _playerController = playerController;
             _boxController = boxController;
         }
+
+
+        #region Methods
 
         private void SpawnEnemy()
         {
@@ -43,6 +50,11 @@ namespace AvegaGamesTest1
 
             enemies.Add(enemy);
         }
+
+        #endregion
+
+
+        #region IExecute
 
         public void Execute()
         {
@@ -63,5 +75,7 @@ namespace AvegaGamesTest1
                 }
             }
         }
+
+        #endregion
     }
 }

@@ -7,6 +7,8 @@ namespace AvegaGamesTest1
 {
     public sealed class BoxController : IExecute
     {
+        #region Fields
+
         private readonly PlayerController _playerController;
         private readonly WeaponController _weaponController;
 
@@ -15,6 +17,9 @@ namespace AvegaGamesTest1
 
         private AudioSource _audioSourc;
         private AudioClip _audioClip;
+
+        #endregion
+
 
         public BoxController(GameObject box, PlayerController playerController, WeaponController weaponController, AudioSource audioSource, AudioClip audioClip)
         {
@@ -26,6 +31,9 @@ namespace AvegaGamesTest1
             _audioClip = audioClip;
         }
 
+
+        #region Methods
+
         public void CreateBox(Vector3 enemyPosition)
         {
             var values = Enum.GetValues(typeof(BoxMaterial));
@@ -34,6 +42,11 @@ namespace AvegaGamesTest1
             var box = new Box(_box, randomBoxMaterial, enemyPosition);
             boxes.Add(box);
         }
+
+        #endregion
+
+
+        #region IExecute
 
         public void Execute()
         {
@@ -50,5 +63,7 @@ namespace AvegaGamesTest1
                 }
             }
         }
+
+        #endregion
     }
 }

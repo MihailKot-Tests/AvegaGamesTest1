@@ -5,8 +5,7 @@ namespace AvegaGamesTest1
 {
     public sealed class Box
     {
-        public bool IsDie { get; private set; } = false;
-        public BoxMaterial BoxMaterial { get; private set; }
+        #region Fields
 
         private GameObject _boxGameObject;
 
@@ -20,6 +19,17 @@ namespace AvegaGamesTest1
         private Vector3 _vector = new Vector3(0.0f, 1.0f, 0.0f);
         private Quaternion _q;
 
+        #endregion
+
+
+        #region Properties
+
+        public bool IsDie { get; private set; } = false;
+        public BoxMaterial BoxMaterial { get; private set; }
+
+        #endregion
+
+
         public Box(GameObject box, BoxMaterial boxMaterial, Vector3 enemyPosition)
         {
             _boxGameObject = GameObject.Instantiate(box, enemyPosition, new Quaternion());
@@ -29,6 +39,9 @@ namespace AvegaGamesTest1
 
             _startPos = _boxGameObject.transform.position;
         }
+
+
+        #region Methods
 
         public void Action()
         {
@@ -56,5 +69,7 @@ namespace AvegaGamesTest1
             _q = new Quaternion(Mathf.Sin(_speedRotation / 2) * _vector.x, Mathf.Sin(_speedRotation / 2) * _vector.y, Mathf.Sin(_speedRotation / 2) * _vector.z, Mathf.Cos(_speedRotation / 2));
             _boxGameObject.transform.rotation = _boxGameObject.transform.rotation * _q;
         }
+
+        #endregion
     }
 }
